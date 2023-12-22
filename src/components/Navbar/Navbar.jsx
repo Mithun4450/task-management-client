@@ -1,7 +1,22 @@
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import logo from "../../assets/logo.png"
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+    const { logOut, user} = useContext(AuthContext);
+    console.log(user)
+    const navigate = useNavigate();
+
+    const handleLogOut = () =>{
+        logOut()
+        .then()
+        .catch()
+
+        navigate("/")
+    }
+
+
     const navLinks = <>
     
         <li><Link to="/" className="hover:bg-[#221070] hover:text-white" >Home</Link></li>
@@ -34,7 +49,13 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login" className="btn bg-[#221070] text-white">Login</Link>
+                    {
+                        user? 
+                        <Link className="btn bg-[#221070] text-white" onClick={handleLogOut}>Logout</Link>  :
+                        <Link to="/login" className="btn bg-[#221070] text-white">Login</Link>
+                    }
+
+                    
                     
                 </div>
             </div>

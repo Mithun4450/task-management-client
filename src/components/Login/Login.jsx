@@ -13,9 +13,7 @@ const Login = () => {
     const [loginError, setLoginError] = useState('')
     const {loginWithEmailPassword, loginWithGoogle, loginWithGithub} = useContext(AuthContext);
     const navigate = useNavigate()
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
-    console.log(location.state)
+   
 
     const handleLogin = e =>{
         e.preventDefault()
@@ -30,7 +28,7 @@ const Login = () => {
         
                 swal("Good job!","You have successfully logged in!", "success");
                 
-                navigate(from, { replace: true });
+                navigate("/dashboard");
                
 
             })
@@ -49,7 +47,7 @@ const Login = () => {
 
             swal("Good job!","You have successfully logged in!", "success");
             
-            navigate(from, { replace: true });
+            navigate("/dashboard");
             
         
         })
@@ -65,7 +63,7 @@ const Login = () => {
 
             swal("Good job!","You have successfully logged in!", "success");
             
-            navigate(from, { replace: true });
+            navigate("/dashboard");
 
             
             
