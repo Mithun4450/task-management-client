@@ -1,14 +1,35 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const CreateTask = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext);
-    
+    const axiosPublic = useAxiosPublic();
 
     const onSubmit = data => {
         console.log(data);
+        const title = data.title;
+        const description = data.description;
+        const deadline = data.deadline;
+        const priority = data.priority;
+        const status = "todo";
+        const user_email= user.email;
+
+        const task = {title, description, deadline, priority, status, user_email};
+
+        axiosPublic.post('/tasks', task)
+        .then(res => {
+            console.log(res.data)
+            if (res.data.insertedId) {
+                swal("Good job!","You have successfully created your task!", "success");
+                reset();
+                
+                
+            }
+
+        })
     }   
 
     return (

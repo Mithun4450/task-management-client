@@ -52,11 +52,9 @@ const Dashboard = () => {
                                 <NavLink to="/dashboard/createTask">Create New Task</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/previousTasks">Previous Tasks</NavLink>
+                                <NavLink to="/dashboard/allTasks">All Tasks</NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/dashboard/taskManager">Task Manager</NavLink>
-                            </li>
+                            
                                 
                         </ul>
                     

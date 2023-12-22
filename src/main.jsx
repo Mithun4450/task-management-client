@@ -11,9 +11,17 @@ import AuthProvider from './AuthProvider/AuthProvider';
 import SignUp from './components/SignUp/SignUp';
 import Login from './components/Login/Login';
 import Dashboard from './components/MainLayout/Dashboard';
-import PreviousTasks from './components/PreviousTasks/PreviousTasks';
-import TaskManager from './components/TaskManager/TaskManager';
 import CreateTask from './components/CreateTask/CreateTask';
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import AllTasks from './AllTasks/AllTasks';
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
 
@@ -48,13 +56,10 @@ const router = createBrowserRouter([
         element: <CreateTask></CreateTask>
       },
       {
-        path: "previousTasks",
-        element: <PreviousTasks></PreviousTasks>
+        path: "allTasks",
+        element: <AllTasks></AllTasks>
       },
-      {
-        path: "taskManager",
-        element: <TaskManager></TaskManager>
-      }
+      
 
       
 
@@ -68,8 +73,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
         <RouterProvider router={router} />
-     </AuthProvider>
+      </AuthProvider>
+    </QueryClientProvider>
+     
   </React.StrictMode>,
 )
