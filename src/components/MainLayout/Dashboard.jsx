@@ -2,6 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 
 
@@ -73,7 +74,7 @@ const Dashboard = () => {
 
         </div>
 
-       
+       <Footer></Footer>
 
        </>
     );

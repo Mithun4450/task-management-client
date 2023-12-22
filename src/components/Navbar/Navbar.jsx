@@ -23,6 +23,7 @@ const Navbar = () => {
         <li><Link to="/about"  className="hover:bg-[#221070] hover:text-white">About</Link></li>
         <li><Link to="/features" className="hover:bg-[#221070] hover:text-white">Features</Link></li>
         <li><Link to="/resources" className="hover:bg-[#221070] hover:text-white">Resources</Link></li>
+        <li><Link to="/dashboard/createTask" className="hover:bg-[#221070] hover:text-white">Dashboard</Link></li>
         
     </>
 

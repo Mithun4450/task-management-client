@@ -10,16 +10,17 @@ const AllTasks = () => {
     const { user } = useContext(AuthContext);
     const axiosPublic = useAxiosPublic();
     
+    
 
     const { data: tasks = [], refetch } = useQuery({
-        queryKey: ['payments', user.email],
+        queryKey: ['payments', user?.email],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/tasks?user_email=${user.email}`)
+            const res = await axiosPublic.get(`/tasks/${user?.email}`)
             console.log(res.data)
             return res.data;
         }
     })
-
+    console.log(tasks)
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 ">
             <div className="w-full lg:1/4  bg-sky-400">

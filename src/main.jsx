@@ -20,6 +20,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import AllTasks from './AllTasks/AllTasks';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 const queryClient = new QueryClient();
 
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
   // dashboard
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: "createTask",

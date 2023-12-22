@@ -28,7 +28,7 @@ const Login = () => {
         
                 swal("Good job!","You have successfully logged in!", "success");
                 
-                navigate("/dashboard");
+                navigate("/dashboard/createTask");
                
 
             })
@@ -47,7 +47,7 @@ const Login = () => {
 
             swal("Good job!","You have successfully logged in!", "success");
             
-            navigate("/dashboard");
+            navigate("/dashboard/createTask");
             
         
         })
@@ -63,7 +63,8 @@ const Login = () => {
 
             swal("Good job!","You have successfully logged in!", "success");
             
-            navigate("/dashboard");
+            navigate("/dashboard/createTask");
+            
 
             
             
